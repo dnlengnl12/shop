@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by TEMPLATED
@@ -16,10 +17,82 @@ Released   : 20130405
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
+<meta charset="UTF-8" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Keyborad by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="../resources/js/jquery.min.js"></script>
+<style>
+         /* The Modal (background) */
+        .login_modal_cl {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+        }
+    
+        /* Modal Content/Box */
+        .login_modal_content {
+            background-color: #ebebeb;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 37%; /* Could be more or less, depending on screen size */
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px;                          
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .login_header {
+        	text-align: center;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var login_modal = document.getElementById("login_modal");
+		var login_open = document.getElementById("login_open");
+		var span = document.getElementsByClassName("close")[0];
+			
+		login_open.onclick = function() {
+			login_modal.style.display = "block";
+		}
+		
+		span.onclick = function() {
+			login_modal.style.display = "none";
+		}
+		
+		window.onclick = function(event){
+			if(event.target == login_modal){
+				login_modal.style.display = "none";
+			}
+		}
+		
+	});
+</script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -29,13 +102,20 @@ Released   : 20130405
 				<h1><a href="/">Murky Stairwell </a></h1>
 			</div>
 			<div id="menu">
-				<ul>
-					<li class="current_page_item"><a href="#">Homepage</a></li>
+				<ul style="width:550px;">
+					<li><a href="#">Homepage</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><a href="#">Photos</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#" id="login_open"><span>Login</span></a></li>
 				</ul>
+				
+				<div id="login_modal" class="login_modal_cl">
+					<div class="login_modal_content">
+						<span class="close">&times;</span>
+						<h1 class="login_header">login</h1>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="banner">
