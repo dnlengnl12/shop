@@ -69,6 +69,37 @@ Released   : 20130405
             text-decoration: none;
             cursor: pointer;
         }
+        body .loginform{
+           text-align: center;
+        }
+        body input.inpt {
+            text-align:center;
+            font-size: 14px;
+            width: 50%;
+            height: 15px;
+            margin-bottom: 12px;
+            padding: 14px 22px;
+            color: #999999;
+            border: 2px solid #8e8e8e;
+            background: transparent;
+            -moz-border-radius: 1px;
+            -webkit-border-radius: 1px;
+            border-radius: 5px;
+            margin: 0px 0px 0px 0px;
+            outline: 0px solid #8e8e8e;
+        }
+        body input.loginbutton{
+           text-align: center;
+           font-size: 17px;
+           width: 57%;
+           margin-bottom: 40px;
+           height: 40px;
+           color: #1b1620;
+           background-color: #aaa;
+           outline: 0px solid #aaa;
+           border-radius: 5px;
+        }
+        .menu a{cursor:pointer;}
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -114,6 +145,17 @@ Released   : 20130405
 					<div class="login_modal_content">
 						<span class="close">&times;</span>
 						<h1 class="login_header">login</h1>
+						<br></br>
+						<div class="loginform">
+						<form>
+							<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요.">
+							<br></br>
+							<input type="password" class="inpt" placeholder="비밀번호를 입력 해 주세요.">
+							<br></br>
+							<input type="submit" value="로그인" class="loginbutton">
+						</form>
+                         <a href="/account/joinForm">회원가입</a>&nbsp;|&nbsp;<a>아이디 찾기</a>&nbsp;|&nbsp;<a>비밀번호 찾기</a>
+						</div>
 					</div>
 				</div>
 			</div>
