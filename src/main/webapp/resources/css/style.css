@@ -228,6 +228,13 @@ a:hover {
 	padding: 0px 0px 0px 0px;
 }
 
+#joinForm_content {
+	float: left;
+	width: 680px;
+	height: 850px;
+	padding: 0px 0px 0px 0px;
+}
+
 .post {
 	overflow: hidden;
 	padding: 50px 50px 30px 50px;
@@ -514,6 +521,13 @@ a:hover {
 	margin: 0px auto;
 	width: 1000px;
 	height: 340px;
+	background: url(images/img03.png) no-repeat left bottom;
+}
+
+#joinForm_banner {
+	margin: 0px auto;
+	width: 1000px;
+	height: 1000px;
 	background: url(images/img03.png) no-repeat left bottom;
 }
 
