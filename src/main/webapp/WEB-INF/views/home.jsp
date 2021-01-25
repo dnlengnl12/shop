@@ -22,7 +22,7 @@ Released   : 20130405
 <title>Keyborad by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="../resources/js/jquery.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
 <style>
          /* The Modal (background) */
         .login_modal_cl {

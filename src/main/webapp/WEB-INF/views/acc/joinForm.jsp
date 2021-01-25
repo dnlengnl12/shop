@@ -1,19 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
 
-Name       : Murky Stairwell 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20130405
 
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -45,13 +34,64 @@ Released   : 20130405
 		<div id="joinForm_banner">
 			<div class="joinForm_content">
 				<span class="explain">아이디</span>
-				<br></br>
-				<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요."></input>
+				<br>
+				<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요.">
+				<br>
+				<span class="explain">비밀번호</span>
+				<br>
+				<input type="password" class="inpt" placeholder="비밀번호를 입력 해 주세요.">
+				<br>
+				<span class="explain">비밀번호 확인</span>
+				<br>
+				<input type="password" class="inpt" placeholder="비밀번호를 확인 해 주세요.">
+				<br>
+				<span class="explain">이름</span>
+				<br>
+				<input type="text" class="Aname" placeholder="이름을 입력 해 주세요.">
+				<br>
+				<span class="explain">우편번호</span>
+				<br>
+				<input type="hidden" value="">
+				<input type="text" readonly style="width:100px" class="Address">
+				<input type="button" value="주소 검색" onclick="goPopup();">
+				<br>
+				<span class="explain">도로명 주소</span>
+				<br>
+				<input type="text" style="width:60%" class="Address2">
+				<br>
+				<span class="explain">상세주소</span>
+				<br>
+				<input type="text" style="width:60%" value="" class="Address3">
+				<br>
+				<input type="text" class="phoneStyle" size=3 maxlength="3" onKeyPress="return numkeyCheck(event)"> - 
+				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)"> - 
+				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)">
+				<br>
+				<span class="explain">이메일</span>
+				<br>
+				<input type="text" class="emailpt">
+				<b>@</b>
+				<input type="text" readonly="true" class="emailpt2">
+				<select onchange="SetEmailTail(emailcheck.options[this.selectedIndex].value)" class="emailpt3">
+					<option value="notSelected">::선택하세요::</option>
+					<option value="etc">직접 입력</option>
+					<option value="naver.com">naver.com</option>
+					<option value="nate.com">nate.com</option>
+					<option value="empal.com">empal.com</option>
+					<option value="hotmail.com">hotmail.com</option>
+					<option value="lycos.co.kr">lycos.co.kr</option>
+					<option value="msn.com">msn.com</option>
+					<option value="hanmail.com">hanmail.com</option>
+					<option value="yahoo.com">yahoo.com</option>
+					<option value="gmail.com">gmail.com</option>
+				</select>
+				<input type="hidden">
+				<br>
+				<div class="submit-wrap">
+				<input type="submit" value="회원가입" class="submit">
+				</div>
 			</div>
 		</div>
-		<div>
-		</div>
-		<div></div>
 		<div style="clear: both;">&nbsp;</div>
 	</div>
 	<div></div>

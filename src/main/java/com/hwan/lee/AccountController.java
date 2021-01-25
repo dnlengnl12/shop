@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value="/account")
 public class AccountController {
 
-	@RequestMapping(value="/account/joinForm", method=RequestMethod.GET)
+	@RequestMapping(value="/joinForm", method=RequestMethod.GET)
 	public String joinForm() {
-		return "acc/joinForm";
+		String page="acc/joinForm";
+		return page;
 	}
 }

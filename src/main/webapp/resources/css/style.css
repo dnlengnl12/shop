@@ -231,7 +231,7 @@ a:hover {
 #joinForm_content {
 	float: left;
 	width: 680px;
-	height: 850px;
+	height: 1600px;
 	padding: 0px 0px 0px 0px;
 }
 
@@ -527,7 +527,7 @@ a:hover {
 #joinForm_banner {
 	margin: 0px auto;
 	width: 1000px;
-	height: 1000px;
+	height: auto;
 	background: url(images/img03.png) no-repeat left bottom;
 }
 
