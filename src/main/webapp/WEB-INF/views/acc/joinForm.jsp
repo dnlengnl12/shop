@@ -30,6 +30,19 @@ body .joinForm_content input.inpt {
 	border-radius: 2px;
 	margin: 6px 0px 18px 200px;
 }
+body .joinForm_content input.inpt2 {
+	font-size: 14px;
+	width: 35%;
+	height: 37px;
+	padding: 6px 13px;
+	color: #999999;
+	border: 1px solid #d9d9d9;
+	background: transparent;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	margin: 6px 0px 18px 200px;
+}
 body .joinForm_content input.Aname {
 	font-size: 14px;
 	width: 22%;
@@ -46,7 +59,7 @@ body .joinForm_content input.Aname {
 body .joinForm_content input.emailpt {
 	font-size: 14px;
 	width: 18%;
-	height: 42px;
+	height: 37px;
 	padding: 16px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -54,13 +67,13 @@ body .joinForm_content input.emailpt {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 200px;
+	margin: 6px 0px 18px 200px;
 }
 
 body .joinForm_content input.emailpt2 {
 	font-size: 14px;
 	width: 22%;
-	height: 42px;
+	height: 37px;
 	padding: 16px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -68,12 +81,12 @@ body .joinForm_content input.emailpt2 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 5px;
+	margin: 6px 0px 18px 5px;
 }
 body .joinForm_content select.emailpt3 {
 	font-size: 14px;
 	width: 22%;
-	height: 42px;
+	height: 37px;
 	padding: 5px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -81,12 +94,12 @@ body .joinForm_content select.emailpt3 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 5px;
+	margin: 6px 0px 18px 5px;
 }
 body .joinForm_content input.phoneStyle {
 	font-size: 14px;
 	width: 10%;
-	height: 42px;
+	height: 37px;
 	padding: 5px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -94,13 +107,13 @@ body .joinForm_content input.phoneStyle {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 200px;
+	margin: 6px 0px 18px 200px;
 }
 
 body .joinForm_content input.phoneStyle2 {
 	font-size: 14px;
 	width: 13%;
-	height: 42px;
+	height: 37px;
 	padding: 5px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -108,12 +121,12 @@ body .joinForm_content input.phoneStyle2 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 5px;
+	margin: 6px 0px 18px 5px;
 }
 body .joinForm_content input.phoneStyle3 {
 	font-size: 14px;
 	width: 13%;
-	height: 42px;
+	height: 37px;
 	padding: 5px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -121,12 +134,12 @@ body .joinForm_content input.phoneStyle3 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 5px;
+	margin: 6px 0px 18px 5px;
 }
 body .joinForm_content input.Address {
 	font-size: 14px;
 	width: 40%;
-	height: 42px;
+	height: 37px;
 	padding: 16px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -134,12 +147,12 @@ body .joinForm_content input.Address {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 200px;
+	margin: 6px 0px 18px 200px;
 }
 body .joinForm_content input.Address2 {
 	font-size: 14px;
 	width: 40%;
-	height: 42px;
+	height: 37px;
 	padding: 16px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -147,13 +160,13 @@ body .joinForm_content input.Address2 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 200px;
+	margin: 6px 0px 18px 200px;
 }
 
 body .joinForm_content input.Address3 {
 	font-size: 14px;
 	width: 40%;
-	height: 42px;
+	height: 37px;
 	padding: 16px 13px;
 	color: #999999;
 	border: 1px solid #d9d9d9;
@@ -161,7 +174,64 @@ body .joinForm_content input.Address3 {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	margin: 6px 0px 6px 200px;
+	margin: 6px 0px 18px 200px;
+}
+body .joinForm_content  input.duch {
+	font-size: 12px;
+	line-height: 20px;
+	width: 17%;
+	height: 37px;
+	margin-bottom: 2px;
+	cursor: pointer;
+	vertical-align: middle;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #263238;
+	border: 1px solid #5a60c5;
+	background: transparent;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 5px;
+}
+body .joinForm_content  input.address_duch {
+	font-size: 12px;
+	line-height: 20px;
+	width: 10%;
+	height: 37px;
+	margin-bottom: 2px;
+	cursor: pointer;
+	vertical-align: middle;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #263238;
+	border: 1px solid #5a60c5;
+	background: transparent;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 5px;
+}
+body .joinForm_content input.submit {
+	font-size: 12px;
+	line-height: 42px;
+	display: block;
+	width: 30%;
+	height: 42px;
+	cursor: pointer;
+	vertical-align: middle;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #263238;
+	border: 1px solid #263238;
+	background: transparent;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	margin: 90px 0px 50px 400px;
+	float : center;
+}
+body .joinForm_content div.blank {
+	margin: 70px 0px 15px 0px;
+
 }
 </style>
 </head>
@@ -185,6 +255,8 @@ body .joinForm_content input.Address3 {
 		</div>
 		<div id="joinForm_banner">
 			<div class="joinForm_content">
+				<div class="blank"></div>
+				<br>
 				<span class="explain">아이디</span>
 				<br>
 				<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요.">
@@ -192,11 +264,11 @@ body .joinForm_content input.Address3 {
 				<br>
 				<span class="explain">비밀번호</span>
 				<br>
-				<input type="password" class="inpt" placeholder="비밀번호를 입력 해 주세요.">
+				<input type="password" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
 				<br>
 				<span class="explain">비밀번호 확인</span>
 				<br>
-				<input type="password" class="inpt" placeholder="비밀번호를 확인 해 주세요.">
+				<input type="password" class="inpt2" placeholder="비밀번호를 확인 해 주세요.">
 				<br>
 				<span class="explain">이름</span>
 				<br>
@@ -206,7 +278,7 @@ body .joinForm_content input.Address3 {
 				<br>
 				<input type="hidden" value="">
 				<input type="text" readonly style="width:100px" class="Address">
-				<input type="button" value="주소 검색" onclick="goPopup();">
+				<input type="button" value="주소 검색" class="address_duch" onclick="goPopup();">
 				<br>
 				<span class="explain">도로명 주소</span>
 				<br>
