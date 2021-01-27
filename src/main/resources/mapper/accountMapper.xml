@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hwan.lee.dao.AccountMapper">
+<insert id="accountInsert" parameterType="account">
+	insert into
+		account_db(
+			acc_id
+			,acc_pw
+			,acc_name
+			,acc_add
+			,acc_add2
+			,acc_add3
+			,acc_phone
+			,acc_email
+		)values(
+			#{acc_id}
+			,#{acc_pw}
+			,#{acc_name}
+			,#{acc_add}
+			,#{acc_add2}
+			,#{acc_add3}
+			,#{acc_phone}
+			,#{acc_email}
+		)
+</insert>
+</mapper>

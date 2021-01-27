@@ -376,12 +376,12 @@ body .joinForm_content div.blank {
 				<form action="/account/join" method="post" onsubmit="return formCheck()">
 					<span class="explain">아이디</span>
 					<br>
-					<input type="text" id="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
+					<input type="text" id="acc_id" name="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
 					<input type="button" value="중복 확인" class="duch">
 					<br>
 					<span class="explain">비밀번호</span>
 					<br>
-					<input type="password" id="acc_pw" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
+					<input type="password" id="acc_pw" name="acc_pw" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
 					<br>
 					<span class="explain">비밀번호 확인</span>
 					<br>
@@ -389,7 +389,7 @@ body .joinForm_content div.blank {
 					<br>
 					<span class="explain">이름</span>
 					<br>
-					<input type="text" id="acc_name" class="Aname" placeholder="이름을 입력 해 주세요.">
+					<input type="text" id="acc_name" name="acc_name" class="Aname" placeholder="이름을 입력 해 주세요.">
 					<br>
 					<span class="explain">우편번호</span>
 					<br>
