@@ -11,7 +11,7 @@
 <title>Keyborad by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
 <link href="../resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="../resources/js/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <style>
 body .joinForm_content span.explain {
 	font-size: 15px;
@@ -234,6 +234,50 @@ body .joinForm_content div.blank {
 
 }
 </style>
+<script type="text/javascript">
+function SetEmailTail(emailValue) {
+    var email = document.all("acc_email");    // 사용자 입력
+    var emailTail = document.all("email2"); // Select box
+    if ( emailValue == "notSelected" )
+     return;
+    else if ( emailValue == "etc" ) {
+     emailTail.readOnly = false;
+     emailTail.value = "";
+     emailTail.focus();
+    } else {
+     emailTail.readOnly = true;
+     emailTail.value = emailValue;
+     document.getElementsById("acc_email").value() = emailValue; 
+    }
+} 
+ $(function(){
+	$("#selectStyle").keyup(function(){
+		if(this.value != "etc"){
+			document.getElementById("email2").value=selectStyle;
+		}
+
+	});
+  });
+	function goPopup(){
+	    // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	     var pop = window.open("/popup/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	     
+	    // 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+	     //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+	 }
+	 /** API 서비스 제공항목 확대 (2017.02) **/
+	 function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
+	                   , detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo){
+	    // 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	    document.form.roadAddrPart1.value = roadAddrPart1;
+	    document.form.roadAddrPart2.value = roadAddrPart2;
+	    document.form.addrDetail.value = addrDetail;
+	    document.form.zipNo.value = zipNo;
+	 }
+	
+</script>
+
+
 </head>
 <body>
 	<div id="wrapper">
@@ -259,12 +303,12 @@ body .joinForm_content div.blank {
 				<br>
 				<span class="explain">아이디</span>
 				<br>
-				<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요.">
+				<input type="text" id="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
 				<input type="button" value="중복 확인" class="duch">
 				<br>
 				<span class="explain">비밀번호</span>
 				<br>
-				<input type="password" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
+				<input type="password" id="acc_pw" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
 				<br>
 				<span class="explain">비밀번호 확인</span>
 				<br>
@@ -272,47 +316,54 @@ body .joinForm_content div.blank {
 				<br>
 				<span class="explain">이름</span>
 				<br>
-				<input type="text" class="Aname" placeholder="이름을 입력 해 주세요.">
+				<input type="text" id="acc_name" class="Aname" placeholder="이름을 입력 해 주세요.">
 				<br>
 				<span class="explain">우편번호</span>
 				<br>
-				<input type="hidden" value="">
-				<input type="text" readonly style="width:100px" class="Address">
+				<input type="hidden" id="confmKey" name="confmKey" value="">
+				<input type="text" readonly id="zipNo" name="acc_add" style="width:100px" class="Address">
 				<input type="button" value="주소 검색" class="address_duch" onclick="goPopup();">
 				<br>
 				<span class="explain">도로명 주소</span>
 				<br>
-				<input type="text" style="width:60%" class="Address2">
+				<input type="text" id="roadAddrPart1" name="acc_add2" style="width:60%" class="Address2">
 				<br>
 				<span class="explain">상세주소</span>
 				<br>
-				<input type="text" style="width:60%" value="" class="Address3">
+				<input type="text" id="addrDetail" name="acc_add3" style="width:60%" value="" class="Address3">
 				<br>
 				<span class="explain">핸드폰 번호</span>
 				<br>
 				<input type="text" class="phoneStyle" size=3 maxlength="3" onKeyPress="return numkeyCheck(event)"> - 
 				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)"> - 
 				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)">
+				<input type="hidden" id="acc_phone">
 				<br>
 				<span class="explain">이메일</span>
 				<br>
-				<input type="text" class="emailpt">
-				<b>@</b>
-				<input type="text" readonly="true" class="emailpt2">
-				<select onchange="SetEmailTail(emailcheck.options[this.selectedIndex].value)" class="emailpt3">
-					<option value="notSelected">::선택하세요::</option>
-					<option value="etc">직접 입력</option>
-					<option value="naver.com">naver.com</option>
-					<option value="nate.com">nate.com</option>
-					<option value="empal.com">empal.com</option>
-					<option value="hotmail.com">hotmail.com</option>
-					<option value="lycos.co.kr">lycos.co.kr</option>
-					<option value="msn.com">msn.com</option>
-					<option value="hanmail.com">hanmail.com</option>
-					<option value="yahoo.com">yahoo.com</option>
-					<option value="gmail.com">gmail.com</option>
-				</select>
-				<input type="hidden">
+                             <input type="text" class="emailpt" id="email1">
+                             <b> @</b>
+                             <input type="text" id="email2" value="" ReadOnly="true" class="emailpt2">
+		                        <select name="emailCheck" id="selectStyle" onchange="SetEmailTail(options[this.selectedIndex].value)" class="emailpt3">
+		                           <option value="notSelected" >::선택하세요::</option>
+		                           <option value="etc">직접입력</option>
+		                           <option value="naver.com">naver.com</option>
+		                           <option value="nate.com">nate.com</option>
+		                           <option value="empal.com">empal.com</option>
+		                           <option value="hotmail.com">hotmail.com</option>
+		                           <option value="lycos.co.kr">lycos.co.kr</option>
+		                           <option value="msn.com">msn.com</option>
+		                           <option value="hanmail.net">hanmail.net</option>
+		                           <option value="yahoo.com">yahoo.com</option>
+		                           <option value="korea.com">korea.com</option>
+		                           <option value="kornet.net">kornet.net</option>
+		                           <option value="yahoo.co.kr">yahoo.co.kr</option>
+		                           <option value="kebi.com">kebi.com</option>
+		                           <option value="orgio.net">orgio.net</option>
+		                           <option value="paran.com">paran.com</option>    
+		                           <option value="gmail.com">gmail.com</option>
+		                        </select>
+				<input type="hidden" id="acc_email" name="acc_email">
 				<br>
 				<div class="submit-wrap">
 				<input type="submit" value="회원가입" class="submit">

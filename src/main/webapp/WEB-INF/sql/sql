@@ -1,0 +1,11 @@
+create table account_db(
+    acc_id          varchar2(100)           primary key,
+    acc_pw          varchar2(100)           not null,
+    acc_name        varchar2(100)           not null,
+    acc_add         varchar2(500)          not null,
+    acc_add2        varchar2(500)           not null,
+    acc_add3        varchar2(500)           not null,
+    acc_phone       varchar2(100)           not null,
+    acc_email       varchar2(500)           not null,
+    acc_grade       number                  default 0
+);
