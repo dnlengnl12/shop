@@ -13,4 +13,9 @@ public class AccountController {
 		String page="acc/joinForm";
 		return page;
 	}
+	
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public String join() {
+		return "home";
+	}
 }

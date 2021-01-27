@@ -235,29 +235,82 @@ body .joinForm_content div.blank {
 }
 </style>
 <script type="text/javascript">
-function SetEmailTail(emailValue) {
-    var email = document.all("acc_email");    // 사용자 입력
-    var emailTail = document.all("email2"); // Select box
-    if ( emailValue == "notSelected" )
-     return;
-    else if ( emailValue == "etc" ) {
-     emailTail.readOnly = false;
-     emailTail.value = "";
-     emailTail.focus();
-    } else {
-     emailTail.readOnly = true;
-     emailTail.value = emailValue;
-     document.getElementsById("acc_email").value() = emailValue; 
-    }
-} 
- $(function(){
-	$("#selectStyle").keyup(function(){
-		if(this.value != "etc"){
-			document.getElementById("email2").value=selectStyle;
-		}
-
+ function formCheck(){
+      var acc_id = document.getElementById("acc_id").value;
+      var acc_pw = document.getElementById("acc_pw").value;
+      var acc_pw2 = document.getElementById("acc_pw2").value;
+      var acc_name = document.getElementById("acc_name").value;
+      var phone1 = document.getElementById("phone1").value;
+      var phone2 = document.getElementById("phone2").value;
+      var phone3 = document.getElementById("phone3").value;
+      var email1 = document.getElementById("email1").value;
+      var email2 = document.getElementById("email2").value;
+	  
+      document.getElementById("acc_phone").value = phone1+phone2+phone3;
+      document.getElementById("acc_email").value = email1+"@"+email2;
+      if(acc_id == ''){
+            alert("아이디를 입력해 주세요.");
+            return false;
+      }
+      if(acc_id.length < 3 || acc_id.length > 8){
+            alert("아이디는 3~8글자로 작성해 주세요.");
+            return false;
+      }
+      if(acc_pw == ''){
+            alert("비밀번호를 입력해 주세요.");
+            return false;
+      }
+      if(acc_pw.length < 3 || acc_pw.length > 11){
+            alert("비밀번호는 3~10자리로 작성해 주세요.");
+            return false;
+      }
+      if(acc_pw != acc_pw2){
+            alert("비밀번호가 동일하지 않습니다.");
+            return false;
+      }
+      if(acc_name == ''){
+            alert("이름을 입력해 주세요.");
+            return false;
+      }
+      if(phone1 == ''){
+            alert("번호를 적어주세요.");
+            return false;
+      }
+      if(phone2 == ''){
+            alert("번호를 적어주세요.");
+            return false;
+      }
+      if(phone3 == ''){
+            alert("번호를 적어주세요.");
+            return false;
+      } 
+      if(email1 == ''){
+            alert("이메일을 입력해 주세요.");
+            return false;
+      }
+      return true;
+  }
+	function SetEmailTail(emailValue) {
+		var email = document.all("acc_email");    // 사용자 입력
+		var emailTail = document.all("email2"); // Select box
+		if ( emailValue == "notSelected" )
+		return;
+		else if ( emailValue == "etc" ) {
+			emailTail.readOnly = false;
+			emailTail.value = "";
+			emailTail.focus();
+		} else {
+			emailTail.readOnly = true;
+			emailTail.value = emailValue;
+			}
+		} 
+		$(function(){
+			$("#selectStyle").keyup(function(){
+			if(this.value != "etc"){
+				document.getElementById("email2").value=selectStyle;
+			}
+		});
 	});
-  });
 	function goPopup(){
 	    // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
 	     var pop = window.open("/popup/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
@@ -274,7 +327,26 @@ function SetEmailTail(emailValue) {
 	    document.form.addrDetail.value = addrDetail;
 	    document.form.zipNo.value = zipNo;
 	 }
-	
+	 
+ 	  $(function() {
+ 	          $(".phoneStyle").keyup (function () {
+ 	              var charLimit = $(this).attr("maxlength");
+ 	              if (this.value.length >= charLimit) {
+ 	                  $(this).next('.phoneStyle2').focus();
+ 	                  return false;
+ 	              }
+ 	         });
+
+ 	         $(".phoneStyle2").keyup (function() {
+ 	            var charLimit = $(this).attr("maxlength");
+ 	            if( this.value.length >= charLimit) {
+ 	               $(this).next('.phoneStyle3').focus();
+ 	               return false;
+ 	            }
+
+ 	         });
+ 	   });
+
 </script>
 
 
@@ -301,73 +373,75 @@ function SetEmailTail(emailValue) {
 			<div class="joinForm_content">
 				<div class="blank"></div>
 				<br>
-				<span class="explain">아이디</span>
-				<br>
-				<input type="text" id="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
-				<input type="button" value="중복 확인" class="duch">
-				<br>
-				<span class="explain">비밀번호</span>
-				<br>
-				<input type="password" id="acc_pw" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
-				<br>
-				<span class="explain">비밀번호 확인</span>
-				<br>
-				<input type="password" class="inpt2" placeholder="비밀번호를 확인 해 주세요.">
-				<br>
-				<span class="explain">이름</span>
-				<br>
-				<input type="text" id="acc_name" class="Aname" placeholder="이름을 입력 해 주세요.">
-				<br>
-				<span class="explain">우편번호</span>
-				<br>
-				<input type="hidden" id="confmKey" name="confmKey" value="">
-				<input type="text" readonly id="zipNo" name="acc_add" style="width:100px" class="Address">
-				<input type="button" value="주소 검색" class="address_duch" onclick="goPopup();">
-				<br>
-				<span class="explain">도로명 주소</span>
-				<br>
-				<input type="text" id="roadAddrPart1" name="acc_add2" style="width:60%" class="Address2">
-				<br>
-				<span class="explain">상세주소</span>
-				<br>
-				<input type="text" id="addrDetail" name="acc_add3" style="width:60%" value="" class="Address3">
-				<br>
-				<span class="explain">핸드폰 번호</span>
-				<br>
-				<input type="text" class="phoneStyle" size=3 maxlength="3" onKeyPress="return numkeyCheck(event)"> - 
-				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)"> - 
-				<input type="text" class="phoneStyle2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)">
-				<input type="hidden" id="acc_phone">
-				<br>
-				<span class="explain">이메일</span>
-				<br>
-                             <input type="text" class="emailpt" id="email1">
-                             <b> @</b>
-                             <input type="text" id="email2" value="" ReadOnly="true" class="emailpt2">
-		                        <select name="emailCheck" id="selectStyle" onchange="SetEmailTail(options[this.selectedIndex].value)" class="emailpt3">
-		                           <option value="notSelected" >::선택하세요::</option>
-		                           <option value="etc">직접입력</option>
-		                           <option value="naver.com">naver.com</option>
-		                           <option value="nate.com">nate.com</option>
-		                           <option value="empal.com">empal.com</option>
-		                           <option value="hotmail.com">hotmail.com</option>
-		                           <option value="lycos.co.kr">lycos.co.kr</option>
-		                           <option value="msn.com">msn.com</option>
-		                           <option value="hanmail.net">hanmail.net</option>
-		                           <option value="yahoo.com">yahoo.com</option>
-		                           <option value="korea.com">korea.com</option>
-		                           <option value="kornet.net">kornet.net</option>
-		                           <option value="yahoo.co.kr">yahoo.co.kr</option>
-		                           <option value="kebi.com">kebi.com</option>
-		                           <option value="orgio.net">orgio.net</option>
-		                           <option value="paran.com">paran.com</option>    
-		                           <option value="gmail.com">gmail.com</option>
-		                        </select>
-				<input type="hidden" id="acc_email" name="acc_email">
-				<br>
-				<div class="submit-wrap">
-				<input type="submit" value="회원가입" class="submit">
-				</div>
+				<form action="/account/join" method="post" onsubmit="return formCheck()">
+					<span class="explain">아이디</span>
+					<br>
+					<input type="text" id="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
+					<input type="button" value="중복 확인" class="duch">
+					<br>
+					<span class="explain">비밀번호</span>
+					<br>
+					<input type="password" id="acc_pw" class="inpt2" placeholder="비밀번호를 입력 해 주세요.">
+					<br>
+					<span class="explain">비밀번호 확인</span>
+					<br>
+					<input type="password" id="acc_pw2" class="inpt2" placeholder="비밀번호를 확인 해 주세요.">
+					<br>
+					<span class="explain">이름</span>
+					<br>
+					<input type="text" id="acc_name" class="Aname" placeholder="이름을 입력 해 주세요.">
+					<br>
+					<span class="explain">우편번호</span>
+					<br>
+					<input type="hidden" id="confmKey" name="confmKey" value="">
+					<input type="text" readonly id="zipNo" name="acc_add" style="width:100px" class="Address">
+					<input type="button" value="주소 검색" class="address_duch" onclick="goPopup();">
+					<br>
+					<span class="explain">도로명 주소</span>
+					<br>
+					<input type="text" id="roadAddrPart1" name="acc_add2" style="width:60%" class="Address2">
+					<br>
+					<span class="explain">상세주소</span>
+					<br>
+					<input type="text" id="addrDetail" name="acc_add3" style="width:60%" value="" class="Address3">
+					<br>
+					<span class="explain">핸드폰 번호</span>
+					<br>
+					<input type="text" class="phoneStyle" id="phone1" size=3 maxlength="3" onKeyPress="return numkeyCheck(event)"> - 
+					<input type="text" class="phoneStyle2" id="phone2" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)"> - 
+					<input type="text" class="phoneStyle3" id="phone3" size=4 maxlength="4" onKeyPress="return numkeyCheck(event)">
+					<input type="hidden" id="acc_phone" name="acc_phone">
+					<br>
+					<span class="explain">이메일</span>
+					<br>
+					<input type="text" class="emailpt" id="email1">
+					<b> @</b>
+					<input type="text" id="email2" value="" ReadOnly="true" class="emailpt2">
+					<select name="emailCheck" id="selectStyle" onchange="SetEmailTail(options[this.selectedIndex].value)" class="emailpt3">
+						<option value="notSelected" >::선택하세요::</option>
+						<option value="etc">직접입력</option>
+						<option value="naver.com">naver.com</option>
+						<option value="nate.com">nate.com</option>
+						<option value="empal.com">empal.com</option>
+						<option value="hotmail.com">hotmail.com</option>
+						<option value="lycos.co.kr">lycos.co.kr</option>
+						<option value="msn.com">msn.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+						<option value="yahoo.com">yahoo.com</option>
+						<option value="korea.com">korea.com</option>
+						<option value="kornet.net">kornet.net</option>
+						<option value="yahoo.co.kr">yahoo.co.kr</option>
+						<option value="kebi.com">kebi.com</option>
+						<option value="orgio.net">orgio.net</option>
+						<option value="paran.com">paran.com</option>    
+						<option value="gmail.com">gmail.com</option>
+					</select>
+					<input type="hidden" id="acc_email" name="acc_email">
+					<br>
+					<div class="submit-wrap">
+					<input type="submit" value="회원가입" class="submit">
+					</div>
+				</form>
 			</div>
 		</div>
 		<div style="clear: both;">&nbsp;</div>
