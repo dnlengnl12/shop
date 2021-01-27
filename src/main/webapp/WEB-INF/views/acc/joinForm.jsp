@@ -12,6 +12,7 @@
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
 <link href="../resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.js"></script>
 <style>
 body .joinForm_content span.explain {
 	font-size: 15px;
@@ -235,6 +236,12 @@ body .joinForm_content div.blank {
 }
 </style>
 <script type="text/javascript">
+var idCheck = false;
+$(function(){
+	$("#acc_id").keyup(function(e){
+		idCheck = false;
+	})
+})
  function formCheck(){
       var acc_id = document.getElementById("acc_id").value;
       var acc_pw = document.getElementById("acc_pw").value;
@@ -251,6 +258,10 @@ body .joinForm_content div.blank {
       if(acc_id == ''){
             alert("아이디를 입력해 주세요.");
             return false;
+      }
+      if(idCheck == false){
+    	  alert("아이디 중복 확인을 해 주세요.");
+    	  return false;
       }
       if(acc_id.length < 3 || acc_id.length > 8){
             alert("아이디는 3~8글자로 작성해 주세요.");
@@ -346,6 +357,28 @@ body .joinForm_content div.blank {
 
  	         });
  	   });
+ 	  
+	function idCheck2(){
+		$.ajax({
+			url: "/account/idCheck",
+			type: "post",
+			data: {acc_id: $("#acc_id").val()},
+			success: function(data){
+				if(data=="0"){
+					alert("사용할 수 있는 아이디입니다.");
+					idCheck = true;
+				} else {
+					alert("사용할 수 없는 아이디입니다.");
+					idCheck = false;
+				}
+			},
+			error: function(e){
+				alert("통신 실패...");
+				console.log(e);
+			}
+		});
+	}
+		
 
 </script>
 
@@ -377,7 +410,7 @@ body .joinForm_content div.blank {
 					<span class="explain">아이디</span>
 					<br>
 					<input type="text" id="acc_id" name="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
-					<input type="button" value="중복 확인" class="duch">
+					<input type="button" value="중복 확인" class="duch" onclick="idCheck2();">
 					<br>
 					<span class="explain">비밀번호</span>
 					<br>

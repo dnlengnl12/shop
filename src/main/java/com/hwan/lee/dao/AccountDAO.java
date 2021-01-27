@@ -23,4 +23,16 @@ public class AccountDAO {
 		}
 		return cnt;
 	}
+	
+	public String accountIdCheck(String acc_id) {
+		String idCheck = "";
+		AccountMapper mapper = session.getMapper(AccountMapper.class);
+		
+		try {
+			idCheck = mapper.accountIdCheck(acc_id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return idCheck;
+	}
 }

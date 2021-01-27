@@ -23,4 +23,13 @@ public class AccountService {
 		}
 		return page;
 	}
+	
+	public int accountIdCheck(String acc_id) {
+		String idCheck = dao.accountIdCheck(acc_id);
+		int result = 0;
+		if(idCheck != null) {
+			result = 1;
+		}
+		return result;
+	}
 }

@@ -5,4 +5,5 @@ import com.hwan.lee.vo.AccountVO;
 public interface AccountMapper {
 
 	public int accountInsert(AccountVO acc);
+	public String accountIdCheck(String acc_id);
 }

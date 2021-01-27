@@ -26,4 +26,12 @@
 			,#{acc_email}
 		)
 </insert>
+<select id="accountIdCheck" parameterType="String" resultType="String">
+	select
+		acc_id
+	from
+		account_db
+	where
+		acc_id = #{acc_id}
+</select>
 </mapper>
