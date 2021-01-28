@@ -176,11 +176,11 @@ a:hover {
 }
 
 #menu ul {
-	float: right;
 	margin: 0;
 	padding: 20px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
+	position: absolute;
 }
 
 #menu li {
@@ -188,7 +188,7 @@ a:hover {
 }
 
 #menu a {
-	line-height: 100px;
+
 	margin-right: 1px;
 	padding: 0px 20px 0px 20px;
 	text-decoration: none;

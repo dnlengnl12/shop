@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-
+<html>
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -89,16 +89,53 @@
            border-radius: 5px;
         }
         .menu a{cursor:pointer;}
+        
+.main2{
+	height: 100px;
+}
+.main2>li a:hover{
+	background: #009688;
+	color: #fff;
+}
+.main2>li a{
+	display: block;
+	transition: all 0.1s;
+}
+
+ .main2>li{
+
+position: relative;
+} 
+        .sub2{
+        	display: none; 
+        	padding-top: 0px;
+        	top: 75px;
+        	left: 0;
+        	z-index: 1;
+        	width: 100%;
+        	background: white;
+        	border-color: black;
+        	opacity: 0.8;
+        }
+        .sub2>li{
+        	width:100%;
+        	height: 50px;
+        }
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var login_modal = document.getElementById("login_modal");
-		var login_open = document.getElementById("login_open");
 		var span = document.getElementsByClassName("close")[0];
-			
-		login_open.onclick = function() {
+		
+		$(".login_open").click(function(){
 			login_modal.style.display = "block";
-		}
+		});
+		/* function login_open(){
+			login_modal.style.display = "block";
+		} */
+/* 		login_open.onclick = function() {
+			login_modal.style.display = "block";
+		} */
 		
 		span.onclick = function() {
 			login_modal.style.display = "none";
@@ -126,6 +163,15 @@
 		}
 		return true;
 	}
+	
+	$(document).ready(function(){
+		$(".main2>li").mouseover(function(){
+			$(this).children(".sub2").stop().slideDown();
+		});
+		$(".main2>li").mouseleave(function(){
+			$(this).children(".sub2").stop().slideUp();
+		});
+	});
 </script>
 
 </head>
@@ -137,25 +183,37 @@
 				<h1><a href="/">Murky Stairwell </a></h1>
 			</div>
 			<div id="menu">
-				<c:choose>
-				<c:when test="${not empty sessionScope.loginID }">
-					<ul style="width:550px;">
-						<li><a href="#">Homepage</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Photos</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#"><span>My page</span></a></li>
+			
+					<ul style="width:800px; line-height: 100px;" class="main2">
+						<li><a href="#">Outer/Shoes</a>
+							<ul class="sub2">
+								<li><a href="#">자켓</a></li>
+								<li><a href="#">코트</a></li>
+								<li><a href="#">패딩</a></li>
+								<li><a href="#">집업</a></li>
+								<li><a href="#">신발</a></li>
+							</ul>
+						</li>
+						<li><a href="#">&nbsp;&nbsp;&nbsp;Top&nbsp;&nbsp;&nbsp;</a>
+							<ul class="sub2">
+								<li><a href="#">자켓</a></li>
+								<li><a href="#">코트</a></li>
+								<li><a href="#">패딩</a></li>
+								<li><a href="#">집업</a></li>
+								<li><a href="#">신발</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Bottom</a></li>
+						<li><a href="#">Dress</a></li>
+						<c:choose>
+						<c:when test="${not empty sessionScope.loginID }">
+						<li><a href="/account/test"><span>My page</span></a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#" class="login_open"><span>Login</span></a></li>
+						</c:otherwise>
+						</c:choose>
 					</ul>
-				</c:when>
-				<c:otherwise>
-					<ul style="width:550px;">
-						<li><a href="#">Homepage</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Photos</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#" id="login_open"><span>Login</span></a></li>
-					</ul>
-					
 					<div id="login_modal" class="login_modal_cl">
 						<div class="login_modal_content">
 							<span class="close">&times;</span>
@@ -173,12 +231,10 @@
 							</div>
 						</div>
 					</div>
-				</c:otherwise>
-				</c:choose>
 			</div>
 		</div>
 		<div id="banner">
-			<div class="content"><img src="resources/images/img02.jpg" width="1000" height="300" alt="" /></div>
+			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> --></div>
 		</div>
 	</div>
 	<!-- end #header -->

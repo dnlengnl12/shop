@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.api.services.calendar.Calendar.Acl.Get;
 import com.hwan.lee.service.AccountService;
 import com.hwan.lee.vo.AccountVO;
 
@@ -38,5 +39,10 @@ public class AccountController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(String acc_id, String acc_pw) {
 		return service.accountLogin(acc_id, acc_pw);
+	}
+	
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public String test() {
+		return "test";
 	}
 }

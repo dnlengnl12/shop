@@ -240,8 +240,8 @@ var idCheck = false;
 $(function(){
 	$("#acc_id").keyup(function(e){
 		idCheck = false;
-	})
-})
+	});
+});
  function formCheck(){
       var acc_id = document.getElementById("acc_id").value;
       var acc_pw = document.getElementById("acc_pw").value;
