@@ -34,4 +34,9 @@ public class AccountController {
 		String result = Integer.toString(service.accountIdCheck(acc_id));
 		return result;
 	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String login(String acc_id, String acc_pw) {
+		return service.accountLogin(acc_id, acc_pw);
+	}
 }

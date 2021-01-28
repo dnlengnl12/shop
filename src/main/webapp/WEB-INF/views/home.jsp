@@ -1,19 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
 
-Name       : Murky Stairwell 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20130405
 
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -75,8 +64,8 @@ Released   : 20130405
         body input.inpt {
             text-align:center;
             font-size: 14px;
-            width: 50%;
-            height: 15px;
+            width: 57%;
+            height: 46px;
             margin-bottom: 12px;
             padding: 14px 22px;
             color: #999999;
@@ -85,7 +74,7 @@ Released   : 20130405
             -moz-border-radius: 1px;
             -webkit-border-radius: 1px;
             border-radius: 5px;
-            margin: 0px 0px 0px 0px;
+            margin: 0px 0px 35px 0px;
             outline: 0px solid #8e8e8e;
         }
         body input.loginbutton{
@@ -122,6 +111,21 @@ Released   : 20130405
 		}
 		
 	});
+	
+	function loginCheck(){
+		var acc_id = document.getElementById("acc_id").value;
+		var acc_pw = document.getElementById("acc_pw").value;
+		
+		if(acc_id == ""){
+			alert("아이디를 입력 해 주세요.");
+			return false;
+		}
+		if(acc_pw == ""){
+			alert("비밀번호를 입력 해 주세요.");
+			return false;
+		}
+		return true;
+	}
 </script>
 
 </head>
@@ -133,31 +137,44 @@ Released   : 20130405
 				<h1><a href="/">Murky Stairwell </a></h1>
 			</div>
 			<div id="menu">
-				<ul style="width:550px;">
-					<li><a href="#">Homepage</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Photos</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#" id="login_open"><span>Login</span></a></li>
-				</ul>
-				
-				<div id="login_modal" class="login_modal_cl">
-					<div class="login_modal_content">
-						<span class="close">&times;</span>
-						<h1 class="login_header">login</h1>
-						<br></br>
-						<div class="loginform">
-						<form>
-							<input type="text" class="inpt" placeholder="아이디를 입력 해 주세요.">
+				<c:choose>
+				<c:when test="${not empty sessionScope.loginID }">
+					<ul style="width:550px;">
+						<li><a href="#">Homepage</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Photos</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#"><span>My page</span></a></li>
+					</ul>
+				</c:when>
+				<c:otherwise>
+					<ul style="width:550px;">
+						<li><a href="#">Homepage</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Photos</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#" id="login_open"><span>Login</span></a></li>
+					</ul>
+					
+					<div id="login_modal" class="login_modal_cl">
+						<div class="login_modal_content">
+							<span class="close">&times;</span>
+							<h1 class="login_header">login</h1>
 							<br></br>
-							<input type="password" class="inpt" placeholder="비밀번호를 입력 해 주세요.">
-							<br></br>
-							<input type="submit" value="로그인" class="loginbutton">
-						</form>
-                         <a href="/account/joinForm">회원가입</a>&nbsp;|&nbsp;<a>아이디 찾기</a>&nbsp;|&nbsp;<a>비밀번호 찾기</a>
+							<div class="loginform">
+							<form action="/account/login" method="post" onsubmit="return loginCheck()">
+								<input type="text" id="acc_id" name="acc_id" class="inpt" placeholder="아이디를 입력 해 주세요.">
+								<br>
+								<input type="password" id="acc_pw" name="acc_pw" class="inpt" placeholder="비밀번호를 입력 해 주세요.">
+								<br>
+								<input type="submit" value="로그인" class="loginbutton">
+							</form>
+	                         <a href="/account/joinForm">회원가입</a>&nbsp;|&nbsp;<a>아이디 찾기</a>&nbsp;|&nbsp;<a>비밀번호 찾기</a>
+							</div>
 						</div>
 					</div>
-				</div>
+				</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div id="banner">

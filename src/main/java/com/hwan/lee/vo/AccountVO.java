@@ -12,4 +12,5 @@ public class AccountVO {
 	private String acc_add3;
 	private String acc_phone;
 	private String acc_email;
+	private int acc_grade;
 }

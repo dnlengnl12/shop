@@ -35,4 +35,16 @@ public class AccountDAO {
 		}
 		return idCheck;
 	}
+	
+	public AccountVO accountLogin(String acc_id) {
+		AccountVO acc = null;
+		AccountMapper mapper = session.getMapper(AccountMapper.class);
+		
+		try {
+			acc = mapper.accountLogin(acc_id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return acc;
+	}
 }

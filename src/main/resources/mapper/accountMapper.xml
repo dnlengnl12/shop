@@ -34,4 +34,14 @@
 	where
 		acc_id = #{acc_id}
 </select>
+<select id="accountLogin" parameterType="String" resultType="account">
+	select
+		acc_id,
+		acc_pw,
+		acc_grade
+	from
+		account_db
+	where
+		acc_id = #{acc_id}
+</select>
 </mapper>
