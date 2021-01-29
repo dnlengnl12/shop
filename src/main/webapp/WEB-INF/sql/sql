@@ -9,3 +9,5 @@ create table account_db(
     acc_email       varchar2(500)           not null,
     acc_grade       number                  default 0
 );
+
+alter table account_db modify acc_grade varchar2(50) default 'n';

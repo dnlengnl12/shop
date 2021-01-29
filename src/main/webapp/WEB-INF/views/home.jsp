@@ -196,18 +196,43 @@ position: relative;
 						</li>
 						<li><a href="#">&nbsp;&nbsp;&nbsp;Top&nbsp;&nbsp;&nbsp;</a>
 							<ul class="sub2">
-								<li><a href="#">자켓</a></li>
-								<li><a href="#">코트</a></li>
-								<li><a href="#">패딩</a></li>
-								<li><a href="#">집업</a></li>
-								<li><a href="#">신발</a></li>
+								<li><a href="#">티셔츠</a></li>
+								<li><a href="#">후드</a></li>
+								<li><a href="#">니트</a></li>
+								<li><a href="#">기타</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Bottom</a></li>
-						<li><a href="#">Dress</a></li>
+						<li><a href="#">Bottom</a>
+							<ul class="sub2">
+								<li><a href="#">청바지</a></li>
+								<li><a href="#">팬츠</a></li>
+								<li><a href="#">스커트</a></li>
+								<li><a href="#">기타</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Dress</a>
+							<ul class="sub2">
+								<li><a href="#">원피스</a></li>
+								<li><a href="#">기타</a></li>
+							</ul>
+						</li>
 						<c:choose>
 						<c:when test="${not empty sessionScope.loginID }">
-						<li><a href="/account/test"><span>My page</span></a></li>
+						<li><a href="/account/test"><span>My page</span></a>
+							<ul class="sub2">
+								<li><a href="#">찜목록</a></li>
+								<li><a href="#">개인정보 수정</a></li>
+								<c:choose>
+								<c:when test="${sessionScope.grade == 'ad' }">
+									<li><a href="#">글 등록</a></li>
+									<li><a href="#">로그아웃</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#">로그아웃</a></li>
+								</c:otherwise>
+								</c:choose>
+							</ul>
+						</li>
 						</c:when>
 						<c:otherwise>
 							<li><a href="#" class="login_open"><span>Login</span></a></li>
