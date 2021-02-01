@@ -223,12 +223,12 @@ position: relative;
 								<li><a href="#">찜목록</a></li>
 								<li><a href="#">개인정보 수정</a></li>
 								<c:choose>
-								<c:when test="${sessionScope.grade == 'ad' }">
+								<c:when test="${sessionScope.grade eq 'ad' }">
 									<li><a href="#">글 등록</a></li>
-									<li><a href="#">로그아웃</a></li>
+									<li><a href="/account/logout">로그아웃</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="#">로그아웃</a></li>
+									<li><a href="/account/logout">로그아웃</a></li>
 								</c:otherwise>
 								</c:choose>
 							</ul>

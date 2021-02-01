@@ -45,4 +45,9 @@ public class AccountController {
 	public String test() {
 		return "test";
 	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout() {
+		return service.accountLogout();
+	}
 }

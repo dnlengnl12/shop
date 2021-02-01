@@ -52,4 +52,10 @@ public class AccountService {
 		}
 		return page;
 	}
+	
+	public String accountLogout() {
+		session.removeAttribute("loginID");
+		session.removeAttribute("grade");
+		return "redirect:/";
+	}
 }
