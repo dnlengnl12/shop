@@ -10,10 +10,12 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Keyborad by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="resources/js/jquery.min.js"></script>
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-3.4.1.js"></script>
+<title>Insert title here</title>
 <style>
-         /* The Modal (background) */
+        /* The Modal (background) */
         .login_modal_cl {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -121,62 +123,107 @@ position: relative;
         	width:100%;
         	height: 50px;
         }
+			.form{
+				padding: 50px 50px;
+				position: relative;
+				overflow: hidden;
+			  	width: 60%;
+			  	height: 600px;
+			  	margin: 80px auto 00;
+			}
+			.form .mainExplain{
+        		text-align: center;
+        		font-size: 25px;
+        		font-weight: 500;
+				margin-bottom: 23px;
+			 	text-align: center;
+        	}
+			.form .explainList{
+				font-size: 15px;
+				font-weight: 700;
+				margin-right: 50px;
+			}
+			.form .explainList2{
+				font-size: 15px;
+				font-weight: 700;
+				margin-right: 50px;
+				margin-bottom: 100px;
+				text-align: top;
+			}
+			.form .submit{
+				font-size: 17px;
+				width: 70px;
+				height: 42px;
+				margin-left: 240px;
+				background-color: black;
+				color: white;
+				border-radius: 5px;
+			}
+			.form .esc{
+				font-size: 17px;
+				width: 70px;
+				height: 42px;
+				background-color: transparent;
+				color: black;
+				border-radius: 5px;
+			}
+			
 </style>
 <script type="text/javascript">
-	$(document).ready(function(){
-		var login_modal = document.getElementById("login_modal");
-		var span = document.getElementsByClassName("close")[0];
-		
-		$(".login_open").click(function(){
-			login_modal.style.display = "block";
-		});
-		/* function login_open(){
-			login_modal.style.display = "block";
-		} */
-/* 		login_open.onclick = function() {
-			login_modal.style.display = "block";
-		} */
-		
-		span.onclick = function() {
-			login_modal.style.display = "none";
-		}
-		
-		window.onclick = function(event){
-			if(event.target == login_modal){
-				login_modal.style.display = "none";
-			}
-		}
-		
-	});
+$(document).ready(function(){
+	var login_modal = document.getElementById("login_modal");
+	var span = document.getElementsByClassName("close")[0];
 	
-	function loginCheck(){
-		var acc_id = document.getElementById("acc_id").value;
-		var acc_pw = document.getElementById("acc_pw").value;
-		
-		if(acc_id == ""){
-			alert("아이디를 입력 해 주세요.");
-			return false;
-		}
-		if(acc_pw == ""){
-			alert("비밀번호를 입력 해 주세요.");
-			return false;
-		}
-		return true;
+	$(".login_open").click(function(){
+		login_modal.style.display = "block";
+	});
+	/* function login_open(){
+		login_modal.style.display = "block";
+	} */
+/* 		login_open.onclick = function() {
+		login_modal.style.display = "block";
+	} */
+	
+	span.onclick = function() {
+		login_modal.style.display = "none";
 	}
 	
-	$(document).ready(function(){
-		$(".main2>li").mouseover(function(){
-			$(this).children(".sub2").stop().slideDown();
-		});
-		$(".main2>li").mouseleave(function(){
-			$(this).children(".sub2").stop().slideUp();
-		});
+	window.onclick = function(event){
+		if(event.target == login_modal){
+			login_modal.style.display = "none";
+		}
+	}
+	
+});
+
+function loginCheck(){
+	var acc_id = document.getElementById("acc_id").value;
+	var acc_pw = document.getElementById("acc_pw").value;
+	
+	if(acc_id == ""){
+		alert("아이디를 입력 해 주세요.");
+		return false;
+	}
+	if(acc_pw == ""){
+		alert("비밀번호를 입력 해 주세요.");
+		return false;
+	}
+	return true;
+}
+
+$(document).ready(function(){
+	$(".main2>li").mouseover(function(){
+		$(this).children(".sub2").stop().slideDown();
 	});
+	$(".main2>li").mouseleave(function(){
+		$(this).children(".sub2").stop().slideUp();
+	});
+});
 </script>
 
 </head>
 <body>
-<div id="wrapper">
+	<div id="wrapper">
 	<div id="header-wrapper">
 		<div id="header" class="container">
 			<div id="logo">
@@ -258,90 +305,47 @@ position: relative;
 					</div>
 			</div>
 		</div>
-		<div id="banner">
-			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> --></div>
+	</div>
+	<div id="joinForm_banner">
+			<div class="joinForm_content">
+			
+					<form action="/board/register" method="post" class="form" enctype="multipart/form-data" id="formCheck">
+				 		<div class="mainExplain">글 등록</div>
+				 		<hr align="left" size="2px" color="black">
+				 		<br>
+				 		<span class="explainList">분류</span>
+				 		<select name="item_option" class="optionList">
+				 			<option value="ticket">티켓</option>
+				 			<option value="album">앨범</option>
+				 			<option value="clothes">의류</option>
+				 			<option value="goods">goods</option>
+				 		</select>
+				 		<hr class="row1" align="left">
+				 		<br>
+				     	<span class="explainList">제목</span>
+				    	<input type="text" placeholder="제목을 입력 해 주세요." name="item_title" id="item_title" class="title">
+				  		<hr class="row1" align="left">
+				  		<br>
+				  		<span class="explainList">가격</span>
+				  		<input type="text" placeholder="가격을 입력 해 주세요." name="item_price" id="item_price" class="price">원
+				  		<hr class="row1" align="left">
+				  		<br>
+				  		<span class="explainList2">내용</span>
+				  		<textarea rows="10" cols="70" name="item_contents" id="item_contents"></textarea>
+				  		<hr class="row1" align="left">
+				  		<br>
+				  		<span class="explainList">파일 첨부</span>
+				  		<input type="file" name="upload" multiple="multiple" id="upload">
+				  		<hr class="row1" align="left">
+				  		<br>
+				  		<div class="row2">
+				  		<input type="button" value="등록" class="submit" onclick="formCheck();">
+				  		<input type="button" value="취소" class="esc" onclick="esc();">
+				  		</div>
+				  		
+				 	</form>
+			</div>
 		</div>
 	</div>
-	<!-- end #header -->
-	
-	<div id="page">
-		<div id="content">
-			<div class="post">
-				<h2 class="title"><a href="#">Welcome to Murky Stairwell </a></h2>
-				<p class="meta"><span class="date">April 05, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>This is <strong>Murky Stairwell </strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.        The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus, cursus egestas at sem.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
-				<p class="meta"><span class="date">April 04, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in,  ut, lobortis a, est.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
-				<p class="meta"><span class="date">April 01, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in,  ut, lobortis a, est.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div style="clear: both;">&nbsp;</div>
-		</div>
-		<!-- end #content -->
-		<div id="sidebar">
-			<ul>
-				<li>
-					<h2>Categories</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Blogroll</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Archives</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-		<!-- end #sidebar -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<!-- end #page --> 
-</div>
-<div id="footer">
-	<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
-</div>
-<!-- end #footer -->
 </body>
 </html>

@@ -50,4 +50,5 @@ public class AccountController {
 	public String logout() {
 		return service.accountLogout();
 	}
+	
 }
