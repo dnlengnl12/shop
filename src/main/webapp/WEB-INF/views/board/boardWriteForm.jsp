@@ -219,6 +219,28 @@ $(document).ready(function(){
 		$(this).children(".sub2").stop().slideUp();
 	});
 });
+
+function optionChange(e){
+	var outer = ["자켓", "코트", "패딩", "집업", "신발"];
+	var top = ["티셔츠", "후드", "니트", "기타"];
+	var bottom = ["청바지", "팬츠", "스커트", "기타"];
+	var dress = ["원피스", "기타"];
+	var target = document.getElementById("item_option2");
+	
+	if(e.value == "outer") var d = outer;
+	else if(e.value == "top") var d = top;
+	else if(e.value == "bottom") var d = bottom;
+	else if(e.value == "dress") var d = dress;
+	
+	target.options.length = 0;
+	
+	for(x in d) {
+		var opt = document.createElement("option");
+		opt.value = d[x];
+		opt.innerHTML = d[x];
+		target.appendChild(opt);
+	}
+}
 </script>
 
 </head>
@@ -313,12 +335,17 @@ $(document).ready(function(){
 				 		<div class="mainExplain">글 등록</div>
 				 		<hr align="left" size="2px" color="black">
 				 		<br>
-				 		<span class="explainList">분류</span>
-				 		<select name="item_option" class="optionList">
-				 			<option value="ticket">티켓</option>
-				 			<option value="album">앨범</option>
-				 			<option value="clothes">의류</option>
-				 			<option value="goods">goods</option>
+				 		<span class="explainList">분류1</span>
+				 		<select name="item_option" id="item_option" class="optionList" onchange="optionChange(this)">
+				 			<option>선택해 주세요.</option>
+				 			<option value="outer">Outer/Shoes</option>
+				 			<option value="top">Top</option>
+				 			<option value="bottom">Bottom</option>
+				 			<option value="dress">Dress</option>
+				 		</select>
+				 		<span class="explainList" style="margin-left: 80px;">분류2</span>
+				 		<select class="optionList" id="item_option2" name="item_option2" class="optionList">
+				 			<option>선택해 주세요.</option>
 				 		</select>
 				 		<hr class="row1" align="left">
 				 		<br>
