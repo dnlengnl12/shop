@@ -11,3 +11,27 @@ create table account_db(
 );
 
 alter table account_db modify acc_grade varchar2(50) default 'n';
+
+create table item_db(
+    item_num        number              primary key,
+    acc_id          varchar2(100)       not null,
+    item_option1     varchar2(100)       not null,
+    item_option2    varchar2(100)       not null,
+    item_title      varchar2(1000)      not null,
+    item_contents   varchar2(2000)      not null,
+    item_date       date                default sysdate,
+    item_price      number              not null
+);
+
+create table file_db(
+    file_no             number              primary key
+    ,acc_id             varchar2(100)       not null
+    ,item_num           number              not null
+    ,originalfile		varchar2(200)	    not null
+	,savedfile			varchar2(100)       not null
+    ,constraint fk_file_db1 foreign key(acc_id) references account_db(acc_id)
+    ,constraint fk_file_db2 foreign key(item_num) references item_db(item_num)
+);
+
+create sequence item_db_seq;
+create sequence file_db_seq;

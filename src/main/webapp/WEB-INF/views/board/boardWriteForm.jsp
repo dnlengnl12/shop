@@ -241,6 +241,41 @@ function optionChange(e){
 		target.appendChild(opt);
 	}
 }
+
+function formCheck(){
+	var item_option1 = document.getElementById("item_option1");
+	var item_option2 = document.getElementById("item_option2");
+	var item_title = document.getElementById("item_title");
+	var item_price = document.getElementById("price");
+	var item_contents = document.getElementById("item_contents");
+	var upload = document.getElementById("upload");
+	
+	if(item_option1 == ""){
+		alert("분류를 선택 해 주세요");
+		return false;
+	} 
+	if(item_option2 == ""){
+		alert("소분류를 선택 해 주세요");
+		return false;
+	}
+	if(item_title == ""){
+		alert("제목을 입력 해 주세요.");
+		return false;
+	}
+	if(item_price == ""){
+		alert("가격을 입력 해 주세요.");
+		return false;
+	}
+	if(item_contents == ""){
+		alert("내용을 입력 해 주세요.");
+		return false;
+	}
+	if(upload == null){
+		alert("첨부 파일을 확인 해 주세요.");
+		return false;
+	}
+	document.getElementById("formCheck").submit();
+}
 </script>
 
 </head>
@@ -277,7 +312,7 @@ function optionChange(e){
 								<li><a href="#">팬츠</a></li>
 								<li><a href="#">스커트</a></li>
 								<li><a href="#">기타</a></li>
-							</ul>
+f							</ul>
 						</li>
 						<li><a href="#">Dress</a>
 							<ul class="sub2">
@@ -336,7 +371,7 @@ function optionChange(e){
 				 		<hr align="left" size="2px" color="black">
 				 		<br>
 				 		<span class="explainList">분류1</span>
-				 		<select name="item_option" id="item_option" class="optionList" onchange="optionChange(this)">
+				 		<select name="item_option1" id="item_option1" class="optionList" onchange="optionChange(this)">
 				 			<option>선택해 주세요.</option>
 				 			<option value="outer">Outer/Shoes</option>
 				 			<option value="top">Top</option>

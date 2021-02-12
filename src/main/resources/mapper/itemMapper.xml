@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hwan.lee.dao.ItemMapper">
+<insert id="itemInsert" parameterType="item">
+	insert into
+		item_db(
+			item_num
+			,acc_id
+			,item_option1
+			,item_option2
+			,item_title
+			,item_contents
+			,item_price
+			,item_fileNum
+		)values(
+			item_db_seq.nextval
+			,#{acc_id}
+			,#{item_option1}
+			,#{item_option2}
+			,#{item_title}
+			,#{item_contents}
+			,#{item_price}
+			,#{item_fileNum}
+		)
+		<selectKey keyProperty="item_num" resultType="int" order="AFTER">
+			select item_db_seq.currval
+			from dual
+		</selectKey>
+</insert>
+</mapper>
