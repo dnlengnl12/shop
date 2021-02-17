@@ -6,9 +6,11 @@
 	<typeAliases>
 		<typeAlias type="com.hwan.lee.vo.AccountVO" alias="account"/>
 		<typeAlias type="com.hwan.lee.vo.ItemVO" alias="item"/>
+		<typeAlias type="com.hwan.lee.vo.FileVO" alias="file"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/accountMapper.xml"/>
 		<mapper resource="mapper/itemMapper.xml"/>
+		<mapper resource="mapper/fileMapper.xml"/>
 	</mappers>
 </configuration>

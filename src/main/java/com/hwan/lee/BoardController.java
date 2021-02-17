@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.api.services.calendar.Calendar.Acl.Get;
+import com.hwan.lee.service.FileService;
 import com.hwan.lee.service.ItemService;
-import com.hwan.lee.util.FileService;
 import com.hwan.lee.vo.FileVO;
 import com.hwan.lee.vo.ItemVO;
 
@@ -24,6 +24,8 @@ public class BoardController {
 
 	@Autowired
 	private ItemService service;
+	@Autowired
+	private FileService service2;
 	@Autowired
 	private HttpSession session;
 	
@@ -48,13 +50,15 @@ public class BoardController {
 		for(int i=0; i<upload.length; i++) {
 			if(!upload[i].isEmpty()) {
 				FileVO file = new FileVO();
-				String savedfile = FileService.saveFile(upload[i], uploadPath);
+				String savedfile = com.hwan.lee.util.FileService.saveFile(upload[i], uploadPath);
 				file.setSavedfile(savedfile);
 				file.setOriginalfile(upload[i].getOriginalFilename());
 				file.setAcc_id(acc_id);
 				file.setItem_num(item_num);
 				file.setFile_index(i+1);
 				fileList.add(file);
+				page = service2.fileInsert(file);
+				
 			}
 		}
 		return page;

@@ -35,3 +35,5 @@ create table file_db(
 
 create sequence item_db_seq;
 create sequence file_db_seq;
+
+alter table file_db add file_index number default '0' not null;
