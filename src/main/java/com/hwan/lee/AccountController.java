@@ -41,11 +41,11 @@ public class AccountController {
 		return service.accountLogin(acc_id, acc_pw);
 	}
 	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public String test() {
-		return "test";
-	}
 	
+	/*
+	 * @RequestMapping(value="/test", method=RequestMethod.GET) public String test()
+	 * { return "test"; }
+	 */
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout() {
 		return service.accountLogout();

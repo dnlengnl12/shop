@@ -30,4 +30,26 @@
 			from dual
 		</selectKey>
 </insert>
+<select id="itemSelect" parameterType="String" resultType="hashmap">
+	select
+		i.item_num
+		,i.item_option1
+		,i.item_option2
+		,i.item_title
+		,i.item_contents
+		,i.item_price
+		,i.item_fileNum
+		,i.item_date
+		,f.savedfile
+		,f.file_index
+	from
+		item_db i,
+		file_db f
+	where
+		i.item_option2 = #{item_option2}
+		and
+		i.item_num = f.item_num
+	order by
+		item_date desc
+</select>
 </mapper>

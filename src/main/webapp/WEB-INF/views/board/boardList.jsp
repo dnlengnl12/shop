@@ -10,8 +10,8 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Keyborad by TEMPLATED</title>
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,300' rel='stylesheet' type='text/css' />
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="resources/js/jquery.min.js"></script>
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="../resources/js/jquery.min.js"></script>
 <style>
          /* The Modal (background) */
         .login_modal_cl {
@@ -187,8 +187,8 @@ position: relative;
 					<ul style="width:800px; line-height: 100px;" class="main2">
 						<li><a href="#">Outer/Shoes</a>
 							<ul class="sub2">
-								<li><a href="/board/boardList?item_option2=${'자켓'}">자켓</a></li>
-								<li><a href="/board/boardList?item_option2=${'코트' }">코트</a></li>
+								<li><a href="#">자켓</a></li>
+								<li><a href="#">코트</a></li>
 								<li><a href="#">패딩</a></li>
 								<li><a href="#">집업</a></li>
 								<li><a href="#">신발</a></li>
@@ -218,7 +218,7 @@ position: relative;
 						</li>
 						<c:choose>
 						<c:when test="${not empty sessionScope.loginID }">
-						<li><a href="/board/boardList"><span>My page</span></a>
+						<li><a href="/account/test"><span>My page</span></a>
 							<ul class="sub2">
 								<li><a href="#">찜목록</a></li>
 								<li><a href="#">개인정보 수정</a></li>
@@ -259,89 +259,16 @@ position: relative;
 			</div>
 		</div>
 		<div id="banner">
-			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> --></div>
+			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> -->
+				<c:forEach var="l" items="${list }" varStatus="status">
+					<h2>${l.ITEM_TITLE }</h2>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<!-- end #header -->
-	
 	<div id="page">
 		<div id="content">
-			<div class="post">
-				<h2 class="title"><a href="#">Welcome to Murky Stairwell </a></h2>
-				<p class="meta"><span class="date">April 05, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>This is <strong>Murky Stairwell </strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.        The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus, cursus egestas at sem.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
-				<p class="meta"><span class="date">April 04, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in,  ut, lobortis a, est.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
-				<p class="meta"><span class="date">April 01, 2013</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in,  ut, lobortis a, est.</p>
-					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
-				</div>
-			</div>
-			<div style="clear: both;">&nbsp;</div>
 		</div>
-		<!-- end #content -->
-		<div id="sidebar">
-			<ul>
-				<li>
-					<h2>Categories</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Blogroll</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Archives</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-		<!-- end #sidebar -->
-		<div style="clear: both;">&nbsp;</div>
 	</div>
-	<!-- end #page --> 
 </div>
-<div id="footer">
-	<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
-</div>
-<!-- end #footer -->
-</body>
-</html>

@@ -1,6 +1,7 @@
 package com.hwan.lee;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -62,5 +63,14 @@ public class BoardController {
 			}
 		}
 		return page;
+	}
+	
+	@RequestMapping(value="/boardList", method=RequestMethod.GET)
+	public String boardList(String item_option2, Model model) {
+		System.out.println(item_option2);
+		ArrayList<HashMap<Object, Object>> list = service.itemSelect(item_option2);
+		System.out.println(list.toString());
+		model.addAttribute("list", list);
+		return "board/boardList";
 	}
 }

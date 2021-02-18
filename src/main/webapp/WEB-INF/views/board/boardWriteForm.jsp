@@ -312,7 +312,7 @@ function formCheck(){
 								<li><a href="#">팬츠</a></li>
 								<li><a href="#">스커트</a></li>
 								<li><a href="#">기타</a></li>
-f							</ul>
+							</ul>
 						</li>
 						<li><a href="#">Dress</a>
 							<ul class="sub2">
