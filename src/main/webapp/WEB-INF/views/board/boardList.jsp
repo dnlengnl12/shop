@@ -121,6 +121,9 @@ position: relative;
         	width:100%;
         	height: 50px;
         }
+        .item_table{
+        	align: center;
+        }
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -260,9 +263,14 @@ position: relative;
 		</div>
 		<div id="banner">
 			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> -->
-				<c:forEach var="l" items="${list }" varStatus="status">
-					<h2>${l.ITEM_TITLE }</h2>
-				</c:forEach>
+				<table class="item_table">
+					<c:forEach var="l" items="${list }" varStatus="status">
+						<td>${l.ITEM_TITLE }</td>
+						<c:if test="${status.count%4==0 }">
+							<tr></tr>
+						</c:if>
+					</c:forEach>
+				</table>
 			</div>
 		</div>
 	</div>
