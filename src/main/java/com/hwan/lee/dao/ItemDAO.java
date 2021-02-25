@@ -40,4 +40,16 @@ public class ItemDAO {
 		
 		return item;
 	}
+	
+	public HashMap<Object, Object> itemSelectOne(int item_num){
+		HashMap<Object, Object> item = null;
+		ItemMapper mapper = session.getMapper(ItemMapper.class);
+		
+		try {
+			item = mapper.itemSelectOne(item_num);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return item;
+	}
 }

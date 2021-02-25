@@ -121,8 +121,13 @@ position: relative;
         	width:100%;
         	height: 50px;
         }
+        .table_div{
+        	text-align: center;
+        }
+        
         .item_table{
-        	align: center;
+        	margin-left: auto;
+        	margin-right: auto;
         }
 </style>
 <script type="text/javascript">
@@ -261,16 +266,30 @@ position: relative;
 					</div>
 			</div>
 		</div>
-		<div id="banner">
-			<div class="content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> -->
-				<table class="item_table">
-					<c:forEach var="l" items="${list }" varStatus="status">
-						<td>${l.ITEM_TITLE }</td>
-						<c:if test="${status.count%4==0 }">
-							<tr></tr>
-						</c:if>
-					</c:forEach>
-				</table>
+		<div id="list_banner">
+			<div class="list_content"><!-- <img src="resources/images/img02.jpg" width="1000" height="300" alt="" /> -->
+				<div class="table_div">
+					<table class="item_table">
+						<c:forEach var="l" items="${list }" varStatus="status">
+							<td style="padding: 10px 10px;">
+							<a href="/board/boardSelect?ITEM_NUM=${l.ITEM_NUM }">
+							<img src="<c:url value="/resources/boardfile/${l.SAVEDFILE }"></c:url>" width="282" height="318">
+							</a>
+							<br>
+							<br>
+							<span style="float:left;">${l.ITEM_TITLE }</span>
+							<br>
+							<hr>
+							<br>
+							<span style="float:left;">${l.ITEM_PRICE }</span>
+							</td>
+							
+							<c:if test="${status.count%4==0 }">
+								<tr></tr>
+							</c:if>
+						</c:forEach>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -67,10 +67,16 @@ public class BoardController {
 	
 	@RequestMapping(value="/boardList", method=RequestMethod.GET)
 	public String boardList(String item_option2, Model model) {
-		System.out.println(item_option2);
 		ArrayList<HashMap<Object, Object>> list = service.itemSelect(item_option2);
-		System.out.println(list.toString());
 		model.addAttribute("list", list);
 		return "board/boardList";
+	}
+	
+	@RequestMapping(value="/boardSelect", method= RequestMethod.GET)
+	public String boardSelect(int ITEM_NUM, Model model) {
+		System.out.println(ITEM_NUM);
+		HashMap<Object, Object> item = service.itemSelectOne(ITEM_NUM);
+		model.addAttribute("item", item);
+		return "board/boardSelect";
 	}
 }

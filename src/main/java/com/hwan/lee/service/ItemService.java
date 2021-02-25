@@ -26,5 +26,10 @@ public class ItemService {
 		ArrayList<HashMap<Object, Object>> item = dao.itemSelect(item_option2);
 		return item;
 	}
+	
+	public HashMap<Object, Object> itemSelectOne(int item_num){
+		HashMap<Object, Object> item = dao.itemSelectOne(item_num);
+		return item;
+	}
 
 }

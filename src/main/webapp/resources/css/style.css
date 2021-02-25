@@ -235,6 +235,18 @@ a:hover {
 	padding: 0px 0px 0px 0px;
 }
 
+#list_content {
+	float: left;
+	width: 680px;
+	height: 1600px;
+	padding: 0px 0px 0px 0px;
+}
+#boardSelect_content {
+	float: left;
+	width: 340px;
+	height: 1600px;
+	padding: 0px 0px 0px 0px;
+}
 .post {
 	overflow: hidden;
 	padding: 50px 50px 30px 50px;
@@ -530,6 +542,21 @@ a:hover {
 	height: auto;
 	background: url(images/img03.png) no-repeat left bottom;
 }
+
+#list_banner {
+	margin: 0px auto;
+	width: 1000px;
+	height: auto;
+	background: url(images/img03.png) no-repeat left bottom;
+}
+
+#boardSelect_banner {
+	margin: 0px auto;
+	width: 1000px;
+	height: auto;
+	background: url(images/img03.png) no-repeat left bottom;
+}
+
 
 #banner img
 {

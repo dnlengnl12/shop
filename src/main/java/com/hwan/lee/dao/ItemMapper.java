@@ -9,5 +9,6 @@ public interface ItemMapper {
 	
 	public int itemInsert(ItemVO item);
 	public ArrayList<HashMap<Object, Object>> itemSelect(String item_option2);
+	public HashMap<Object, Object> itemSelectOne(int item_num);
 
 }
